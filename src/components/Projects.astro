@@ -1,8 +1,8 @@
 ---
-const projects = [
+const ownProjects = [
   {
     title:       'krimamakler.de',
-    description: 'Professionelle Versicherungsmakler-Website für Hausverwaltungen in Berlin. Modernes Design mit klarem Lead-Flow, Testimonials, Leistungsübersicht und Kontaktformular.',
+    description: 'Versicherungsmakler-Website für Hausverwaltungen in Berlin. Lead-Flow, Testimonials und Kontaktformular.',
     tags:        ['Astro', 'Tailwind CSS', 'TypeScript', 'Cloudflare'],
     href:        'https://krimamakler.de',
     status:      'live',
@@ -12,13 +12,52 @@ const projects = [
   },
   {
     title:       'Autowäsche & Aufbereitung',
-    description: 'Service-Website für professionelle Fahrzeugpflege – Autoaufbereitung, Ambientebeleuchtung, Taxi-Service und KFZ-Händler-Pakete. Aktuell in Entwicklung.',
+    description: 'Service-Website für professionelle Fahrzeugpflege – Autoaufbereitung, Ambientebeleuchtung, Taxi-Service und KFZ-Händler-Pakete.',
     tags:        ['Astro', 'Tailwind CSS', 'TypeScript', 'Cloudflare'],
     href:        null,
     status:      'soon',
     initials:    'AW',
     accentFrom:  '#22d3ee',
     accentTo:    '#f472b6',
+  },
+] as const;
+
+const typo3Projects = [
+  {
+    title:       'tourismus-nuernberg.de',
+    description: 'Offizielle Tourismus-Website der Stadt Nürnberg. Mitentwicklung im Team bei Decide Internet Services.',
+    tags:        ['TYPO3', 'Fluid', 'TYPOScript', 'SCSS', 'SEO'],
+    href:        'https://tourismus-nuernberg.de',
+    initials:    'TN',
+    accentFrom:  '#f59e0b',
+    accentTo:    '#ef4444',
+  },
+  {
+    title:       'burg-rabenstein.de',
+    description: 'Website für Burg Rabenstein – Tourismus, Veranstaltungen und Übernachtungsangebote. Website-Launch koordiniert.',
+    tags:        ['TYPO3', 'Fluid', 'TYPOScript', 'SCSS'],
+    href:        'https://burg-rabenstein.de',
+    initials:    'BR',
+    accentFrom:  '#10b981',
+    accentTo:    '#06b6d4',
+  },
+  {
+    title:       'neustadt-aisch.de',
+    description: 'Kommunale Website der Stadt Neustadt a.d. Aisch. Website-Launch von der Konzeption bis zur Auslieferung geleitet.',
+    tags:        ['TYPO3', 'Fluid', 'TYPOScript', 'SCSS', 'SEO'],
+    href:        'https://neustadt-aisch.de',
+    initials:    'NA',
+    accentFrom:  '#3b82f6',
+    accentTo:    '#8b5cf6',
+  },
+  {
+    title:       'eckstein-evangelisch.de',
+    description: 'Website der Evangelisch-Lutherischen Kirchengemeinde Nürnberg. Mitentwicklung bei Decide Internet Services.',
+    tags:        ['TYPO3', 'Fluid', 'TYPOScript', 'SCSS'],
+    href:        'https://eckstein-evangelisch.de',
+    initials:    'EK',
+    accentFrom:  '#f472b6',
+    accentTo:    '#a78bfa',
   },
 ] as const;
 ---
@@ -32,88 +71,101 @@ const projects = [
       <h2 class="text-3xl sm:text-4xl font-extrabold">Was ich gebaut habe</h2>
     </div>
 
-    <!-- Cards grid -->
-    <div class="grid sm:grid-cols-2 gap-6">
-      {projects.map(({ title, description, tags, href, status, initials, accentFrom, accentTo }, i) => (
-        <article
-          class="card-glow rounded-2xl overflow-hidden flex flex-col reveal"
-          style={`background: #13131a; transition-delay: ${i * 0.15}s;`}
-        >
-          <!-- Visual header -->
-          <div
-            class="relative h-44 flex items-center justify-center overflow-hidden"
-            style={`background: linear-gradient(135deg, ${accentFrom}14, ${accentTo}0a);`}
+    <!-- Own projects -->
+    <div class="mb-12">
+      <p class="font-mono text-xs tracking-widest uppercase mb-6 reveal" style="color: #7c7c99;">
+        ◈ Eigene Projekte
+      </p>
+      <div class="grid sm:grid-cols-2 gap-5">
+        {ownProjects.map(({ title, description, tags, href, status, initials, accentFrom, accentTo }, i) => (
+          <article
+            class="card-glow rounded-2xl overflow-hidden flex flex-col reveal"
+            style={`background: #13131a; transition-delay: ${i * 0.1}s;`}
           >
-            <!-- Subtle grid -->
             <div
-              class="absolute inset-0 opacity-25"
-              style="background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 28px 28px;"
-              aria-hidden="true"
-            ></div>
-            <!-- Initials watermark -->
-            <span
-              class="font-extrabold text-7xl select-none opacity-15"
-              style={`font-family: 'Space Grotesk', sans-serif; background: linear-gradient(135deg, ${accentFrom}, ${accentTo}); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;`}
-              aria-hidden="true"
+              class="relative h-36 flex items-center justify-center overflow-hidden"
+              style={`background: linear-gradient(135deg, ${accentFrom}14, ${accentTo}0a);`}
             >
-              {initials}
-            </span>
-            <!-- Status badge -->
-            {status === 'live' ? (
               <div
-                class="absolute top-4 right-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono"
-                style="background: rgba(16,185,129,0.12); color: #34d399; border: 1px solid rgba(16,185,129,0.25);"
-              >
-                <div class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></div>
-                Live
-              </div>
-            ) : (
-              <div
-                class="absolute top-4 right-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono"
-                style="background: rgba(139,92,246,0.12); color: #a78bfa; border: 1px solid rgba(139,92,246,0.25);"
-              >
-                ✦ Coming Soon
-              </div>
-            )}
-          </div>
-
-          <!-- Body -->
-          <div class="p-6 flex flex-col flex-1">
-            <h3 class="text-xl font-extrabold mb-2 text-text">{title}</h3>
-            <p class="text-sm text-muted leading-relaxed mb-5 flex-1">{description}</p>
-
-            <!-- Tech tags -->
-            <div class="flex flex-wrap gap-2 mb-5">
-              {tags.map(tag => (
-                <span
-                  class="text-xs font-mono px-2.5 py-1 rounded-lg"
-                  style="background: rgba(255,255,255,0.04); color: #7c7c99; border: 1px solid rgba(255,255,255,0.07);"
-                >
-                  {tag}
-                </span>
-              ))}
+                class="absolute inset-0 opacity-20"
+                style="background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 28px 28px;"
+                aria-hidden="true"
+              ></div>
+              <span
+                class="font-extrabold text-6xl select-none opacity-15"
+                style={`font-family: 'Space Grotesk', sans-serif; background: linear-gradient(135deg, ${accentFrom}, ${accentTo}); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;`}
+                aria-hidden="true"
+              >{initials}</span>
+              {status === 'live' ? (
+                <div class="absolute top-3 right-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono" style="background: rgba(16,185,129,0.12); color: #34d399; border: 1px solid rgba(16,185,129,0.25);">
+                  <div class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></div>
+                  Live
+                </div>
+              ) : (
+                <div class="absolute top-3 right-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono" style="background: rgba(139,92,246,0.12); color: #a78bfa; border: 1px solid rgba(139,92,246,0.25);">
+                  ✦ Coming Soon
+                </div>
+              )}
             </div>
-
-            <!-- CTA -->
-            {href ? (
-              <a
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 text-sm font-semibold transition-colors w-fit"
-                style="color: #a78bfa;"
-              >
-                Website besuchen
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
-                </svg>
-              </a>
-            ) : (
-              <span class="text-sm text-muted font-mono italic">In Entwicklung …</span>
-            )}
-          </div>
-        </article>
-      ))}
+            <div class="p-5 flex flex-col flex-1">
+              <h3 class="text-lg font-extrabold mb-1.5 text-text">{title}</h3>
+              <p class="text-sm text-muted leading-relaxed mb-4 flex-1">{description}</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                {tags.map(tag => (
+                  <span class="text-xs font-mono px-2.5 py-1 rounded-lg" style="background: rgba(255,255,255,0.04); color: #7c7c99; border: 1px solid rgba(255,255,255,0.07);">{tag}</span>
+                ))}
+              </div>
+              {href ? (
+                <a href={href} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors w-fit" style="color: #a78bfa;">
+                  Website besuchen
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+                </a>
+              ) : (
+                <span class="text-sm text-muted font-mono italic">In Entwicklung …</span>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
     </div>
+
+    <!-- TYPO3 projects -->
+    <div>
+      <p class="font-mono text-xs tracking-widest uppercase mb-6 reveal" style="color: #7c7c99;">
+        ◉ TYPO3 · Decide Internet Services
+      </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {typo3Projects.map(({ title, description, tags, href, initials, accentFrom, accentTo }, i) => (
+          <article
+            class="card-glow rounded-2xl overflow-hidden flex flex-col reveal"
+            style={`background: #13131a; transition-delay: ${i * 0.08}s;`}
+          >
+            <div
+              class="relative h-24 flex items-center justify-center overflow-hidden"
+              style={`background: linear-gradient(135deg, ${accentFrom}12, ${accentTo}08);`}
+            >
+              <span
+                class="font-extrabold text-4xl select-none opacity-15"
+                style={`font-family: 'Space Grotesk', sans-serif; background: linear-gradient(135deg, ${accentFrom}, ${accentTo}); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;`}
+                aria-hidden="true"
+              >{initials}</span>
+            </div>
+            <div class="p-4 flex flex-col flex-1">
+              <h3 class="text-sm font-bold mb-1.5 text-text leading-snug">{title}</h3>
+              <p class="text-xs text-muted leading-relaxed mb-3 flex-1">{description}</p>
+              <div class="flex flex-wrap gap-1.5 mb-3">
+                {tags.map(tag => (
+                  <span class="text-[10px] font-mono px-2 py-0.5 rounded" style="background: rgba(255,255,255,0.04); color: #7c7c99; border: 1px solid rgba(255,255,255,0.07);">{tag}</span>
+                ))}
+              </div>
+              <a href={href} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-semibold transition-colors w-fit" style="color: #a78bfa;">
+                Website ↗
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+
   </div>
 </section>
