@@ -1,0 +1,96 @@
+---
+const stats = [
+  { value: '4+',   label: 'Jahre Erfahrung' },
+  { value: '20+',  label: 'Projekte' },
+  { value: '3',    label: 'Sprachen' },
+  { value: 'B.Sc.', label: 'E-Commerce' },
+];
+
+const languages = [
+  { lang: 'Deutsch',  level: 'Muttersprache' },
+  { lang: 'Englisch', level: 'C2 fließend'   },
+  { lang: 'Russisch', level: 'in Wort'        },
+];
+---
+
+<section id="about" class="py-28 md:py-36">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-14 lg:gap-24 items-center">
+
+      <!-- Text -->
+      <div class="reveal">
+        <p
+          class="font-mono text-xs tracking-[0.22em] uppercase mb-4"
+          style="color: #8b5cf6;"
+        >Über mich</p>
+
+        <h2 class="text-3xl sm:text-4xl font-extrabold mb-6 leading-snug">
+          Lösungsorientiert.<br />
+          <span class="gradient-text">Von der Idee bis zur Auslieferung.</span>
+        </h2>
+
+        <div class="space-y-4 text-muted leading-relaxed text-[0.95rem]">
+          <p>
+            Ich bin Frontend-Entwickler aus Bad Windsheim mit einem Bachelor of Science
+            in E-Commerce von der THWS Würzburg-Schweinfurt. Seit 2021 entwickle ich
+            anspruchsvolle Webprojekte – von TYPO3-Tourismus&shy;plattformen bis hin zu
+            modernen Astro-Websites.
+          </p>
+          <p>
+            Bei Decide Internet Services habe ich eigenständig Projekte von der Konzeption
+            bis zur Auslieferung geleitet, Entwickler und Azubis mentoriert und bekannte
+            Websites wie{' '}
+            <a
+              href="https://tourismus-nuernberg.de"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="transition-colors"
+              style="color: #a78bfa;"
+            >tourismus-nuernberg.de</a>{' '}
+            und{' '}
+            <a
+              href="https://burg-rabenstein.de"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="transition-colors"
+              style="color: #a78bfa;"
+            >burg-rabenstein.de</a>{' '}
+            mitentwickelt.
+          </p>
+          <p>
+            Mein Antrieb: sauberer Code, gute UX und Interfaces, die Menschen wirklich
+            gerne benutzen.
+          </p>
+        </div>
+
+        <!-- Language badges -->
+        <div class="flex flex-wrap gap-4 mt-8">
+          {languages.map(({ lang, level }) => (
+            <div
+              class="card-glow rounded-lg px-4 py-2.5 text-center"
+              style="background: rgba(139,92,246,0.06);"
+            >
+              <div class="text-sm font-semibold text-text">{lang}</div>
+              <div class="text-xs text-muted font-mono mt-0.5">{level}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Stats grid -->
+      <div class="reveal" style="transition-delay: 0.15s;">
+        <div class="grid grid-cols-2 gap-4">
+          {stats.map(({ value, label }, i) => (
+            <div
+              class="card-glow rounded-2xl p-6 text-center"
+              style={`background: #13131a; transition-delay: ${i * 0.07}s;`}
+            >
+              <div class="text-4xl font-extrabold mb-2 gradient-text">{value}</div>
+              <div class="text-sm text-muted leading-snug">{label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

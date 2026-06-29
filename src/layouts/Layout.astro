@@ -1,0 +1,81 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?:       string;
+  description?: string;
+}
+
+const {
+  title       = 'Alexej Boger – Frontend Developer',
+  description = 'Frontend Developer aus Bad Windsheim. Spezialisiert auf TYPO3, Shopware und moderne Web-Interfaces.',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <meta name="author" content="Alexej Boger" />
+  <meta property="og:title"       content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://boger.io" />
+  <title>{title}</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="icon" href="/favicon.ico" />
+</head>
+<body class="bg-bg text-text">
+  <slot />
+
+  <!-- Cursor glow (desktop only) -->
+  <div
+    id="cursor-glow"
+    aria-hidden="true"
+    style="position:fixed;pointer-events:none;z-index:9999;width:380px;height:380px;border-radius:9999px;opacity:0;mix-blend-mode:screen;background:radial-gradient(circle,rgba(139,92,246,0.18) 0%,transparent 65%);transform:translate(-50%,-50%);will-change:left,top;transition:opacity 0.5s;"
+  ></div>
+
+  <script>
+    // Cursor glow
+    const glow = document.getElementById('cursor-glow') as HTMLDivElement;
+    if (window.matchMedia('(pointer: fine)').matches) {
+      let raf: number;
+      document.addEventListener('mousemove', (e) => {
+        glow.style.opacity = '1';
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          glow.style.left = e.clientX + 'px';
+          glow.style.top  = e.clientY + 'px';
+        });
+      }, { passive: true });
+      document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+    }
+
+    // Nav scroll glass effect
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav?.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // Scroll reveal via Intersection Observer
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach(e => {
+        if (e.isIntersecting) {
+          (e.target as HTMLElement).classList.add('visible');
+          io.unobserve(e.target);
+        }
+      }),
+      { threshold: 0.08 }
+    );
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

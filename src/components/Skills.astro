@@ -1,0 +1,60 @@
+---
+const groups = [
+  {
+    label:  'Frontend',
+    icon:   '◈',
+    color:  '#22d3ee',
+    skills: ['HTML / CSS', 'JavaScript', 'SCSS', 'Tailwind CSS', 'Bootstrap', 'Astro'],
+  },
+  {
+    label:  'CMS & E-Commerce',
+    icon:   '◉',
+    color:  '#8b5cf6',
+    skills: ['TYPO3', 'Fluid', 'TYPOScript', 'Shopware', 'WordPress', 'PHP'],
+  },
+  {
+    label:  'Tools & Sonstiges',
+    icon:   '◆',
+    color:  '#f472b6',
+    skills: ['Git', 'SQL', 'SEO', 'XML / YAML', 'Barrierefreiheit', 'Mentoring'],
+  },
+] as const;
+---
+
+<section id="skills" class="py-28 md:py-36" style="background: linear-gradient(to bottom, transparent, rgba(19,19,26,0.6), transparent);">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <!-- Header -->
+    <div class="text-center mb-14 reveal">
+      <p class="font-mono text-xs tracking-[0.22em] uppercase mb-4" style="color: #8b5cf6;">Skills</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold">Was ich mitbringe</h2>
+    </div>
+
+    <!-- Groups -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {groups.map(({ label, icon, color, skills }, i) => (
+        <div
+          class="card-glow rounded-2xl p-6 reveal"
+          style={`background: #13131a; transition-delay: ${i * 0.1}s;`}
+        >
+          <!-- Group label -->
+          <div class="flex items-center gap-3 mb-5">
+            <span class="text-lg select-none" style={`color: ${color};`} aria-hidden="true">{icon}</span>
+            <span class="font-mono text-xs tracking-widest uppercase" style={`color: ${color};`}>{label}</span>
+          </div>
+          <!-- Tags -->
+          <div class="flex flex-wrap gap-2">
+            {skills.map(skill => (
+              <span
+                class="skill-tag"
+                style={`--tag-color: ${color};`}
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

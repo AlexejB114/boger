@@ -1,0 +1,182 @@
+---
+---
+
+<section id="top" class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6 pt-20">
+
+  <!-- Background decoration -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+    <!-- Grid -->
+    <div
+      class="absolute inset-0"
+      style="opacity:0.022; background-image: linear-gradient(rgba(139,92,246,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,0.6) 1px, transparent 1px); background-size: 72px 72px;"
+    ></div>
+    <!-- Violet orb top-left -->
+    <div
+      class="animate-float absolute -top-56 -left-56 w-[650px] h-[650px] rounded-full"
+      style="background: radial-gradient(circle, #8b5cf6, #6d28d9); filter: blur(90px); opacity: 0.16;"
+    ></div>
+    <!-- Cyan orb bottom-right -->
+    <div
+      class="animate-float-reverse absolute -bottom-48 -right-48 w-[550px] h-[550px] rounded-full"
+      style="background: radial-gradient(circle, #22d3ee, #0891b2); filter: blur(90px); opacity: 0.13;"
+    ></div>
+    <!-- Pink orb center -->
+    <div
+      class="animate-float-slow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full"
+      style="background: radial-gradient(circle, #f472b6, #ec4899); filter: blur(80px); opacity: 0.05;"
+    ></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center max-w-5xl w-full mx-auto">
+
+    <!-- Eyebrow -->
+    <p
+      class="font-mono text-sm tracking-[0.28em] uppercase mb-6 animate-fadeInUp"
+      style="color: #8b5cf6; animation-delay: 0.1s;"
+    >
+      Hallo, ich bin
+    </p>
+
+    <!-- Name -->
+    <h1
+      class="font-display text-[clamp(3.5rem,12vw,8rem)] font-extrabold leading-[0.92] tracking-tight mb-5 animate-fadeInUp"
+      style="animation-delay: 0.22s;"
+    >
+      <span class="text-text">Alexej</span><br />
+      <span class="gradient-text">Boger.</span>
+    </h1>
+
+    <!-- Typewriter role -->
+    <div
+      class="flex items-center justify-center gap-1 mb-8 h-9 animate-fadeInUp"
+      style="animation-delay: 0.38s;"
+    >
+      <span id="typewriter" class="font-mono text-lg sm:text-xl text-muted"></span>
+      <span
+        class="animate-blink inline-block w-0.5 h-5 rounded-sm"
+        style="background: #8b5cf6;"
+        aria-hidden="true"
+      ></span>
+    </div>
+
+    <!-- Bio -->
+    <p
+      class="text-base sm:text-lg text-muted max-w-xl mx-auto leading-relaxed mb-10 animate-fadeInUp"
+      style="animation-delay: 0.5s;"
+    >
+      Ich entwickle schnelle, schöne Webinterfaces –<br class="hidden sm:block" />
+      von der Konzeption bis zur Auslieferung.
+    </p>
+
+    <!-- CTAs -->
+    <div
+      class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fadeInUp"
+      style="animation-delay: 0.62s;"
+    >
+      <a
+        href="#projects"
+        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:brightness-110"
+        style="background: linear-gradient(135deg, #8b5cf6, #22d3ee); box-shadow: 0 0 24px rgba(139,92,246,0.28);"
+      >
+        Projekte ansehen
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+      <a
+        href="#contact"
+        class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl text-sm font-semibold text-accent-light transition-all duration-300 hover:bg-accent/10"
+        style="border: 1px solid rgba(139,92,246,0.38);"
+      >
+        Kontakt aufnehmen
+      </a>
+    </div>
+
+    <!-- Floating code snippet – visible on large screens -->
+    <div
+      class="absolute hidden lg:block right-[-1rem] top-[6rem] animate-float-slow"
+      style="animation-delay: 1.2s;"
+      aria-hidden="true"
+    >
+      <div
+        class="card-glow rounded-xl p-4 font-mono text-xs text-left w-52 select-none"
+        style="background: rgba(19,19,26,0.9); opacity: 0.65;"
+      >
+        <div class="flex items-center gap-1.5 mb-3">
+          <div class="w-2.5 h-2.5 rounded-full" style="background:#ff5f57;"></div>
+          <div class="w-2.5 h-2.5 rounded-full" style="background:#ffbd2e;"></div>
+          <div class="w-2.5 h-2.5 rounded-full" style="background:#28c840;"></div>
+        </div>
+        <div><span style="color:#8b5cf6;">const</span> <span style="color:#f4f4f7;">dev</span> <span style="color:#7c7c99;">=</span> &#123;</div>
+        <div class="pl-3"><span style="color:#22d3ee;">name</span><span style="color:#7c7c99;">:</span> <span style="color:#f472b6;">"Alexej"</span><span style="color:#7c7c99;">,</span></div>
+        <div class="pl-3"><span style="color:#22d3ee;">loves</span><span style="color:#7c7c99;">:</span> <span style="color:#f472b6;">"CSS"</span><span style="color:#7c7c99;">,</span></div>
+        <div class="pl-3"><span style="color:#22d3ee;">coffee</span><span style="color:#7c7c99;">:</span> <span style="color:#8b5cf6;">true</span></div>
+        <div>&#125;<span style="color:#7c7c99;">;</span></div>
+      </div>
+    </div>
+
+    <!-- Second floating card – left side -->
+    <div
+      class="absolute hidden xl:block left-[-1rem] bottom-[8rem] animate-float"
+      style="animation-delay: 0.6s;"
+      aria-hidden="true"
+    >
+      <div
+        class="card-glow rounded-xl p-4 font-mono text-xs text-left w-48 select-none"
+        style="background: rgba(19,19,26,0.9); opacity: 0.55;"
+      >
+        <div class="flex items-center gap-1.5 mb-3">
+          <div class="w-2.5 h-2.5 rounded-full" style="background:#ff5f57;"></div>
+          <div class="w-2.5 h-2.5 rounded-full" style="background:#ffbd2e;"></div>
+          <div class="w-2.5 h-2.5 rounded-full" style="background:#28c840;"></div>
+        </div>
+        <div><span style="color:#8b5cf6;">npm run</span> <span style="color:#22d3ee;">build</span></div>
+        <div class="mt-1" style="color:#7c7c99;">✓ built in 0.8s</div>
+        <div style="color:#28c840;">✓ dist/ ready</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 animate-bounce-arrow" aria-hidden="true">
+    <svg
+      width="22" height="22" viewBox="0 0 24 24"
+      fill="none" stroke="currentColor" stroke-width="1.5"
+      style="color: rgba(124,124,153,0.5);"
+    >
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+  </div>
+</section>
+
+<script>
+  const el = document.getElementById('typewriter')!;
+  const titles = [
+    'Frontend Developer',
+    'TYPO3 Spezialist',
+    'Shopware Entwickler',
+    'B.Sc. E-Commerce',
+  ];
+  let idx = 0, charIdx = 0, deleting = false;
+
+  function tick() {
+    const word = titles[idx]!;
+    if (!deleting) {
+      el.textContent = word.slice(0, ++charIdx);
+      if (charIdx === word.length) {
+        setTimeout(() => { deleting = true; tick(); }, 2200);
+        return;
+      }
+    } else {
+      el.textContent = word.slice(0, --charIdx);
+      if (charIdx === 0) {
+        deleting = false;
+        idx = (idx + 1) % titles.length;
+      }
+    }
+    setTimeout(tick, deleting ? 38 : 78);
+  }
+
+  setTimeout(tick, 900);
+</script>

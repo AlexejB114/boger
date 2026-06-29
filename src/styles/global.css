@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg:           #09090b;
+  --color-surface:      #13131a;
+  --color-surface-2:    #1c1c27;
+  --color-border:       #2a2a3a;
+  --color-text:         #f4f4f7;
+  --color-muted:        #7c7c99;
+  --color-accent:       #8b5cf6;
+  --color-accent-light: #a78bfa;
+  --color-cyan:         #22d3ee;
+  --color-pink:         #f472b6;
+
+  --font-family-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-family-sans:    'Inter', system-ui, sans-serif;
+  --font-family-mono:    'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+}
+
+/* ─── Base ─── */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #09090b;
+  color: #f4f4f7;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+
+/* ─── Gradient Text ─── */
+.gradient-text {
+  background: linear-gradient(135deg, #8b5cf6 0%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Card with hover glow ─── */
+.card-glow {
+  border: 1px solid #2a2a3a;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+.card-glow:hover {
+  border-color: rgba(139, 92, 246, 0.45);
+  box-shadow: 0 0 28px rgba(139, 92, 246, 0.12);
+  transform: translateY(-2px);
+}
+
+/* ─── Skill tag ─── */
+.skill-tag {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #f4f4f7;
+  border-radius: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+  font-size: 0.75rem;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  cursor: default;
+  user-select: none;
+}
+.skill-tag:hover {
+  border-color: var(--tag-color, #8b5cf6);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--tag-color, #8b5cf6) 35%, transparent);
+  transform: translateY(-1px);
+}
+
+/* ─── Scroll reveal ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Nav scroll state ─── */
+nav.scrolled {
+  background: rgba(9, 9, 11, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(42, 42, 58, 0.8);
+}
+
+/* ─── Mobile nav menu ─── */
+#nav-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+/* ─── Keyframes ─── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50%       { transform: translateY(-20px) scale(1.03); }
+}
+@keyframes float-reverse {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50%       { transform: translateY(18px) scale(0.97); }
+}
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+@keyframes ping-dot {
+  0%        { transform: scale(1); opacity: 0.8; }
+  80%, 100% { transform: scale(2.8); opacity: 0; }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes bounce-arrow {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ─── Animation utilities ─── */
+.animate-float         { animation: float 7s ease-in-out infinite; }
+.animate-float-reverse { animation: float-reverse 9s ease-in-out infinite; }
+.animate-float-slow    { animation: float-slow 12s ease-in-out infinite; }
+.animate-blink         { animation: blink 1.1s step-end infinite; }
+.animate-ping-dot      { animation: ping-dot 2.2s ease-out infinite; }
+.animate-fadeInUp      { animation: fadeInUp 0.7s ease both; }
+.animate-bounce-arrow  { animation: bounce-arrow 1.8s ease-in-out infinite; }
