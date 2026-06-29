@@ -24,7 +24,32 @@ const {
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://boger.io/" />
   <link rel="canonical" href="https://boger.io/" />
+  <meta name="theme-color" content="#8b5cf6" />
   <title>{title}</title>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Alexej Boger",
+    "jobTitle": "Frontend Developer",
+    "url": "https://boger.io",
+    "email": "alexej@boger.io",
+    "sameAs": [
+      "https://www.linkedin.com/in/alexej-boger-0a70a920a/",
+      "https://github.com/AlexejB114"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bad Windsheim",
+      "addressRegion": "Bayern",
+      "addressCountry": "DE"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "THWS Würzburg-Schweinfurt"
+    },
+    "knowsAbout": ["TYPO3", "Shopware", "Astro", "JavaScript", "Frontend Development", "Tailwind CSS"]
+  })} />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
