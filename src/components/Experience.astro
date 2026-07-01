@@ -3,8 +3,8 @@ const entries = [
   {
     type:    'work',
     period:  'Jul 2023 – Apr 2025',
-    company: 'Decide Internet Services',
-    location:'Bad Windsheim',
+    company: 'Webagentur',
+    location:'',
     role:    'Front-End-Entwickler',
     bullets: [
       'Leitung von Projekten über die gesamte Prozesskette – von der Konzeption bis zur Auslieferung',
@@ -18,8 +18,8 @@ const entries = [
   {
     type:    'work',
     period:  'Jan 2022 – Mär 2023',
-    company: 'Nimbits GmbH',
-    location:'Würzburg',
+    company: 'Webagentur',
+    location:'',
     role:    'Werkstudent Frontend Development',
     bullets: [
       'Shopware-Entwicklung und -Optimierung für Kunden',
@@ -32,8 +32,8 @@ const entries = [
   {
     type:    'education',
     period:  '2019 – 2023',
-    company: 'THWS Würzburg-Schweinfurt',
-    location:'Würzburg',
+    company: 'Hochschule',
+    location:'',
     role:    'Bachelor of Science – E-Commerce',
     bullets: [
       'Schwerpunkte: Web-Programmierung, Oberflächengestaltung & Usability, Mobile Systeme',
@@ -45,89 +45,229 @@ const entries = [
 ] as const;
 ---
 
-<section id="experience" class="py-28 md:py-36">
-  <div class="max-w-5xl mx-auto px-6">
+<section id="experience" class="exp-section">
 
-    <!-- Header -->
-    <div class="text-center mb-16 reveal">
-      <p class="font-mono text-xs tracking-[0.22em] uppercase mb-4" style="color: #8b5cf6;">Werdegang</p>
-      <h2 class="text-3xl sm:text-4xl font-extrabold">Mein Weg</h2>
+  <div class="exp-bg" aria-hidden="true">
+    <span class="exp-line dl0"></span>
+    <span class="exp-line dl1"></span>
+    <span class="exp-line dl2"></span>
+    <span class="exp-line dl3"></span>
+    <span class="exp-line dl4"></span>
+    <span class="exp-line dl5"></span>
+  </div>
+
+  <div class="exp-glow" aria-hidden="true"></div>
+
+  <div class="max-w-6xl mx-auto px-6 exp-inner">
+
+    <div class="text-center mb-20 reveal">
+      <p class="font-mono text-xs tracking-[0.22em] uppercase mb-4" style="color:#6366f1;">Werdegang</p>
+      <h2 class="text-4xl sm:text-5xl font-extrabold italic gradient-text">Mein Weg.</h2>
     </div>
 
-    <!-- Timeline -->
-    <div class="relative">
+    <div class="exp-grid">
+      {entries.map((entry, i) => (
+        <div
+          class={`exp-wrap ${i % 2 === 0 ? 'exp-left' : 'exp-right'}`}
+          data-exp
+        >
+          <div class="exp-card card-glow" style="background: rgba(22,25,41,0.97);">
 
-      <!-- Vertical line -->
-      <div
-        class="absolute left-5 md:left-7 top-0 bottom-0 w-px"
-        style="background: linear-gradient(to bottom, rgba(139,92,246,0.6), rgba(34,211,238,0.3), transparent);"
-        aria-hidden="true"
-      ></div>
-
-      <div class="space-y-10">
-        {entries.map((entry, i) => (
-          <div
-            class="reveal relative pl-14 md:pl-20"
-            style={`transition-delay: ${i * 0.12}s;`}
-          >
-            <!-- Timeline dot -->
-            <div
-              class="absolute left-[13px] md:left-[19px] top-6 w-5 h-5 md:w-6 md:h-6 rounded-full border-2 flex items-center justify-center"
-              style="background: #09090b; border-color: #8b5cf6; z-index: 1;"
-              aria-hidden="true"
-            >
-              <div
-                class="w-2 h-2 rounded-full"
-                style="background: linear-gradient(135deg, #8b5cf6, #22d3ee);"
-              ></div>
-              {i === 0 && (
-                <div
-                  class="animate-ping-dot absolute inset-0 rounded-full"
-                  style="background: rgba(139,92,246,0.4);"
-                ></div>
-              )}
+            <div class="exp-card-head">
+              <span class="exp-num gradient-text">0{i + 1}</span>
+              <span class="exp-pill">
+                {entry.type === 'education' ? '🎓' : '💼'} {entry.period}
+              </span>
             </div>
 
-            <!-- Card -->
-            <div class="card-glow rounded-2xl p-6" style="background: #13131a;">
-              <!-- Period + type badge -->
-              <div class="flex flex-wrap items-center gap-3 mb-3">
-                <span
-                  class="inline-flex items-center gap-1.5 font-mono text-xs px-3 py-1 rounded-full"
-                  style="color: #8b5cf6; background: rgba(139,92,246,0.08); border: 1px solid rgba(139,92,246,0.2);"
-                >
-                  {entry.type === 'education' ? '🎓' : '💼'}
-                  {entry.period}
-                </span>
-                <span class="text-xs text-muted font-mono">{entry.location}</span>
-              </div>
+            <div class="gradient-text text-xl font-extrabold mb-1 leading-snug">{entry.company}</div>
+            <div class="text-sm font-semibold mb-1" style="color:#f4f6ff;">{entry.role}</div>
+            {entry.location && (
+              <div class="font-mono text-xs mb-5" style="color:#9ba3c8;">{entry.location}</div>
+            )}
 
-              <div class="gradient-text text-xl font-extrabold mb-1">{entry.company}</div>
-              <div class="text-sm font-semibold text-text mb-4">{entry.role}</div>
+            <ul class="exp-bullets">
+              {entry.bullets.map(b => (
+                <li>
+                  <span class="exp-arrow" aria-hidden="true">▸</span>
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
 
-              <ul class="space-y-2 mb-5">
-                {entry.bullets.map(bullet => (
-                  <li class="flex gap-2 text-sm text-muted leading-relaxed">
-                    <span style="color: #8b5cf6; flex-shrink: 0; margin-top: 0.15em;" aria-hidden="true">▸</span>
-                    <span>{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div class="flex flex-wrap gap-2">
-                {entry.tags.map(tag => (
-                  <span
-                    class="text-xs font-mono px-2.5 py-1 rounded-md"
-                    style="background: rgba(255,255,255,0.04); color: #7c7c99; border: 1px solid rgba(255,255,255,0.07);"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+            <div class="exp-tags">
+              {entry.tags.map(tag => (
+                <span class="exp-tag">{tag}</span>
+              ))}
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
+
   </div>
 </section>
+
+<style>
+  /* ── Section shell ── */
+  .exp-section {
+    position: relative;
+    overflow: hidden;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+  @media (min-width: 768px) {
+    .exp-section { padding-top: 9rem; padding-bottom: 9rem; }
+  }
+
+  /* ── Background lines ── */
+  .exp-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    display: flex;
+    justify-content: space-around;
+    z-index: 0;
+  }
+  .exp-line {
+    width: 1px;
+    height: 200%;
+    margin-top: -50%;
+  }
+  .dl0 { background: linear-gradient(to bottom, transparent, rgba(99,102,241,0.18) 40%, rgba(99,102,241,0.26) 55%, rgba(99,102,241,0.18) 70%, transparent); animation: expDrift0 7s ease-in-out infinite; }
+  .dl1 { background: linear-gradient(to bottom, transparent 10%, rgba(129,140,248,0.10) 42%, rgba(129,140,248,0.18) 58%, rgba(129,140,248,0.10) 74%, transparent); animation: expDrift1 9s ease-in-out infinite; }
+  .dl2 { background: linear-gradient(to bottom, transparent, rgba(99,102,241,0.10) 38%, rgba(99,102,241,0.17) 56%, rgba(99,102,241,0.10) 72%, transparent); animation: expDrift2 11s ease-in-out infinite; }
+  .dl3 { background: linear-gradient(to bottom, transparent 15%, rgba(129,140,248,0.09) 44%, rgba(129,140,248,0.16) 60%, rgba(129,140,248,0.09) 76%, transparent); animation: expDrift3 8s ease-in-out infinite 1s; }
+  .dl4 { background: linear-gradient(to bottom, transparent, rgba(99,102,241,0.14) 40%, rgba(99,102,241,0.22) 57%, rgba(99,102,241,0.14) 73%, transparent); animation: expDrift4 13s ease-in-out infinite 0.5s; }
+  .dl5 { background: linear-gradient(to bottom, transparent 20%, rgba(129,140,248,0.08) 46%, rgba(129,140,248,0.14) 62%, rgba(129,140,248,0.08) 78%, transparent); animation: expDrift5 10s ease-in-out infinite 2s; }
+
+  @keyframes expDrift0 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(22px)} }
+  @keyframes expDrift1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(36px)} }
+  @keyframes expDrift2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(14px)} }
+  @keyframes expDrift3 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(28px)} }
+  @keyframes expDrift4 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(10px)} }
+  @keyframes expDrift5 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(24px)} }
+
+  /* ── Radial background glow ── */
+  .exp-glow {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(99,102,241,0.05) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .exp-inner { position: relative; z-index: 1; }
+
+  /* ── Staggered grid ── */
+  .exp-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  .exp-wrap {
+    width: 60%;
+    opacity: 0;
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .exp-left  { align-self: flex-start; transform: translateX(-60px); }
+  .exp-right { align-self: flex-end;   transform: translateX( 60px); }
+  .exp-wrap.visible { opacity: 1; transform: translateX(0); }
+
+  @media (max-width: 767px) {
+    .exp-wrap { width: 100%; }
+    .exp-left  { transform: translateY(40px); }
+    .exp-right { transform: translateY(40px); }
+  }
+
+  /* ── Card internals ── */
+  .exp-card {
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 0 40px rgba(99,102,241,0.07);
+  }
+  .exp-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+  }
+  .exp-num {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+    opacity: 0.28;
+  }
+  .exp-pill {
+    font-size: 0.7rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: #6366f1;
+    background: rgba(99,102,241,0.08);
+    border: 1px solid rgba(99,102,241,0.22);
+    padding: 3px 10px;
+    border-radius: 99px;
+    white-space: nowrap;
+  }
+  .exp-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .exp-bullets li {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: #9ba3c8;
+    line-height: 1.5;
+  }
+  .exp-arrow {
+    color: #6366f1;
+    flex-shrink: 0;
+    margin-top: 0.1em;
+  }
+  .exp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+  .exp-tag {
+    font-size: 0.7rem;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 2px 8px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    color: #9ba3c8;
+    border-radius: 4px;
+  }
+</style>
+
+<script>
+  const io = new IntersectionObserver(
+    (entries) => entries.forEach(e => {
+      if (e.isIntersecting) {
+        (e.target as HTMLElement).classList.add('visible');
+        io.unobserve(e.target);
+      }
+    }),
+    { threshold: 0.15 }
+  );
+  document.querySelectorAll('[data-exp]').forEach(el => io.observe(el));
+
+  const lines = document.querySelectorAll<HTMLElement>('.exp-line');
+  const speeds = [0.04, 0.09, 0.06, 0.11, 0.03, 0.07];
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    lines.forEach((line, i) => {
+      line.style.setProperty('--scroll-y', `${Math.round(y * speeds[i])}px`);
+    });
+  }, { passive: true });
+</script>

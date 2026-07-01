@@ -4,15 +4,18 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev":     "astro dev",
-    "build":   "astro build",
+    "dev": "astro dev",
+    "build": "astro build",
     "preview": "astro preview",
-    "astro":   "astro",
-    "deploy":  "powershell -ExecutionPolicy Bypass -File deploy.ps1"
+    "astro": "astro",
+    "deploy": "powershell -ExecutionPolicy Bypass -File deploy.ps1"
   },
   "dependencies": {
-    "astro":               "^5.18.2",
-    "@tailwindcss/vite":   "^4.3.0",
-    "tailwindcss":         "^4.3.0"
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "@fontsource/space-grotesk": "^5.2.10",
+    "@tailwindcss/vite": "^4.3.0",
+    "astro": "^5.18.2",
+    "tailwindcss": "^4.3.0"
   }
 }

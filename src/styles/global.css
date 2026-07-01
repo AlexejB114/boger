@@ -1,16 +1,22 @@
 @import "tailwindcss";
 
+/* ─── Lokal gehostete Fonts (DSGVO-konform, kein Google-CDN) ─── */
+@import "@fontsource/space-grotesk/700.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/500.css";
+
 @theme {
-  --color-bg:           #09090b;
-  --color-surface:      #13131a;
-  --color-surface-2:    #1c1c27;
-  --color-border:       #2a2a3a;
-  --color-text:         #f4f4f7;
-  --color-muted:        #7c7c99;
-  --color-accent:       #8b5cf6;
-  --color-accent-light: #a78bfa;
-  --color-cyan:         #22d3ee;
-  --color-pink:         #f472b6;
+  --color-bg:           #0d0f1e;
+  --color-surface:      #161929;
+  --color-surface-2:    #1e2240;
+  --color-border:       #222545;
+  --color-text:         #f4f6ff;
+  --color-muted:        #9ba3c8;
+  --color-accent:       #6366f1;
+  --color-accent-light: #818cf8;
 
   --font-family-display: 'Space Grotesk', system-ui, sans-serif;
   --font-family-sans:    'Inter', system-ui, sans-serif;
@@ -22,8 +28,8 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background-color: #09090b;
-  color: #f4f4f7;
+  background-color: #0d0f1e;
+  color: #f4f6ff;
   font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -34,22 +40,20 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Space Grotesk', system-ui, sans-serif;
 }
 
-/* ─── Gradient Text ─── */
+/* ─── Accent Text ─── */
 .gradient-text {
-  background: linear-gradient(135deg, #8b5cf6 0%, #22d3ee 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #6366f1;
+  -webkit-text-fill-color: #6366f1;
 }
 
 /* ─── Card with hover glow ─── */
 .card-glow {
-  border: 1px solid #2a2a3a;
+  border: 1px solid #222545;
   transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 .card-glow:hover {
-  border-color: rgba(139, 92, 246, 0.45);
-  box-shadow: 0 0 28px rgba(139, 92, 246, 0.12);
+  border-color: rgba(99, 102, 241, 0.45);
+  box-shadow: 0 0 28px rgba(99, 102, 241, 0.12);
   transform: translateY(-2px);
 }
 
@@ -67,8 +71,8 @@ h1, h2, h3, h4, h5, h6 {
   user-select: none;
 }
 .skill-tag:hover {
-  border-color: var(--tag-color, #8b5cf6);
-  box-shadow: 0 0 14px color-mix(in srgb, var(--tag-color, #8b5cf6) 35%, transparent);
+  border-color: var(--tag-color, #6366f1);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--tag-color, #6366f1) 35%, transparent);
   transform: translateY(-1px);
 }
 
@@ -85,10 +89,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Nav scroll state ─── */
 nav.scrolled {
-  background: rgba(9, 9, 11, 0.88);
+  background: rgba(13, 15, 30, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(42, 42, 58, 0.8);
+  border-bottom: 1px solid rgba(34, 37, 69, 0.8);
 }
 
 /* ─── Mobile nav menu ─── */

@@ -3,30 +3,30 @@ const groups = [
   {
     label:  'Frontend',
     icon:   '◈',
-    color:  '#22d3ee',
+    color:  '#818cf8',
     skills: ['HTML / CSS', 'JavaScript', 'SCSS', 'Tailwind CSS', 'Bootstrap', 'Astro'],
   },
   {
     label:  'CMS & E-Commerce',
     icon:   '◉',
-    color:  '#8b5cf6',
+    color:  '#6366f1',
     skills: ['TYPO3', 'Fluid', 'TYPOScript', 'Shopware', 'WordPress', 'PHP'],
   },
   {
     label:  'Tools & Sonstiges',
     icon:   '◆',
-    color:  '#f472b6',
+    color:  '#6366f1',
     skills: ['Git', 'SQL', 'SEO', 'XML / YAML', 'Barrierefreiheit', 'Mentoring'],
   },
 ] as const;
 ---
 
-<section id="skills" class="py-28 md:py-36" style="background: linear-gradient(to bottom, transparent, rgba(19,19,26,0.6), transparent);">
+<section id="skills" class="py-28 md:py-36" style="background: linear-gradient(to bottom, transparent, rgba(22,25,41,0.6), transparent);">
   <div class="max-w-6xl mx-auto px-6">
 
     <!-- Header -->
     <div class="text-center mb-14 reveal">
-      <p class="font-mono text-xs tracking-[0.22em] uppercase mb-4" style="color: #8b5cf6;">Skills</p>
+      <p class="font-mono text-xs tracking-[0.22em] uppercase mb-4" style="color: #6366f1;">Skills</p>
       <h2 class="text-3xl sm:text-4xl font-extrabold">Was ich mitbringe</h2>
     </div>
 
@@ -35,7 +35,7 @@ const groups = [
       {groups.map(({ label, icon, color, skills }, i) => (
         <div
           class="card-glow rounded-2xl p-6 reveal"
-          style={`background: #13131a; transition-delay: ${i * 0.1}s;`}
+          style={`background: #161929; transition-delay: ${i * 0.1}s;`}
         >
           <!-- Group label -->
           <div class="flex items-center gap-3 mb-5">

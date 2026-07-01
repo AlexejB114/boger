@@ -2,13 +2,15 @@
 const year = new Date().getFullYear();
 ---
 
-<footer style="border-top: 1px solid #2a2a3a;" class="py-8">
+<footer style="border-top: 1px solid #222545;" class="py-8">
   <div class="max-w-6xl mx-auto px-6 flex items-center justify-center text-sm text-muted">
     <div class="flex items-center gap-2">
-      <span
-        class="font-mono font-bold"
-        style="background: linear-gradient(135deg,#8b5cf6,#22d3ee); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;"
-      >AB.</span>
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-label="AB Monogramm">
+        <rect width="32" height="32" rx="7" fill="#0d0f1e"/>
+        <text x="5" y="24" font-family="'Space Grotesk',system-ui,sans-serif" font-weight="800" font-size="22" fill="#6366f1">A</text>
+        <text x="16" y="24" font-family="'Space Grotesk',system-ui,sans-serif" font-weight="800" font-size="22" fill="#f4f6ff">B</text>
+        <rect x="4" y="27" width="24" height="1.5" rx="0.75" fill="#6366f1" opacity="0.5"/>
+      </svg>
       <span>© {year} Alexej Boger</span>
     </div>
   </div>

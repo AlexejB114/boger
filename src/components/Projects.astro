@@ -7,8 +7,8 @@ const ownProjects = [
     href:        'https://krimamakler.de',
     status:      'live',
     initials:    'KM',
-    accentFrom:  '#8b5cf6',
-    accentTo:    '#22d3ee',
+    accentFrom:  '#6366f1',
+    accentTo:    '#818cf8',
   },
   {
     title:       'Autowäsche & Aufbereitung',
@@ -17,15 +17,15 @@ const ownProjects = [
     href:        null,
     status:      'soon',
     initials:    'AW',
-    accentFrom:  '#22d3ee',
-    accentTo:    '#f472b6',
+    accentFrom:  '#6366f1',
+    accentTo:    '#818cf8',
   },
 ] as const;
 
 const typo3Projects = [
   {
     title:       'tourismus-nuernberg.de',
-    description: 'Offizielle Tourismus-Website der Stadt Nürnberg. Mitentwicklung im Team bei Decide Internet Services.',
+    description: 'Offizielle Tourismus-Website der Stadt Nürnberg. Mitentwicklung im Team bei einer Webagentur.',
     tags:        ['TYPO3', 'Fluid', 'TYPOScript', 'SCSS', 'SEO'],
     href:        'https://tourismus-nuernberg.de',
     initials:    'TN',
@@ -52,35 +52,35 @@ const typo3Projects = [
   },
   {
     title:       'eckstein-evangelisch.de',
-    description: 'Website der Evangelisch-Lutherischen Kirchengemeinde Nürnberg. Mitentwicklung bei Decide Internet Services.',
+    description: 'Website der Evangelisch-Lutherischen Kirchengemeinde Nürnberg. Mitentwicklung bei einer Webagentur.',
     tags:        ['TYPO3', 'Fluid', 'TYPOScript', 'SCSS'],
     href:        'https://eckstein-evangelisch.de',
     initials:    'EK',
-    accentFrom:  '#f472b6',
-    accentTo:    '#a78bfa',
+    accentFrom:  '#6366f1',
+    accentTo:    '#818cf8',
   },
 ] as const;
 ---
 
-<section id="projects" class="py-28 md:py-36" style="background: linear-gradient(to bottom, transparent, rgba(19,19,26,0.5), transparent);">
+<section id="projects" class="py-28 md:py-36" style="background: linear-gradient(to bottom, transparent, rgba(22,25,41,0.5), transparent);">
   <div class="max-w-6xl mx-auto px-6">
 
     <!-- Header -->
     <div class="text-center mb-14 reveal">
-      <p class="font-mono text-xs tracking-[0.22em] uppercase mb-4" style="color: #8b5cf6;">Projekte</p>
+      <p class="font-mono text-xs tracking-[0.22em] uppercase mb-4" style="color: #6366f1;">Projekte</p>
       <h2 class="text-3xl sm:text-4xl font-extrabold">Was ich gebaut habe</h2>
     </div>
 
     <!-- Own projects -->
     <div class="mb-12">
-      <p class="font-mono text-xs tracking-widest uppercase mb-6 reveal" style="color: #7c7c99;">
+      <p class="font-mono text-xs tracking-widest uppercase mb-6 reveal" style="color: #7880b0;">
         ◈ Eigene Projekte
       </p>
       <div class="grid sm:grid-cols-2 gap-5">
         {ownProjects.map(({ title, description, tags, href, status, initials, accentFrom, accentTo }, i) => (
           <article
             class="card-glow rounded-2xl overflow-hidden flex flex-col reveal"
-            style={`background: #13131a; transition-delay: ${i * 0.1}s;`}
+            style={`background: #161929; transition-delay: ${i * 0.1}s;`}
           >
             <div
               class="relative h-36 flex items-center justify-center overflow-hidden"
@@ -102,7 +102,7 @@ const typo3Projects = [
                   Live
                 </div>
               ) : (
-                <div class="absolute top-3 right-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono" style="background: rgba(139,92,246,0.12); color: #a78bfa; border: 1px solid rgba(139,92,246,0.25);">
+                <div class="absolute top-3 right-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono" style="background: rgba(99,102,241,0.12); color: #818cf8; border: 1px solid rgba(99,102,241,0.25);">
                   ✦ Coming Soon
                 </div>
               )}
@@ -112,11 +112,11 @@ const typo3Projects = [
               <p class="text-sm text-muted leading-relaxed mb-4 flex-1">{description}</p>
               <div class="flex flex-wrap gap-2 mb-4">
                 {tags.map(tag => (
-                  <span class="text-xs font-mono px-2.5 py-1 rounded-lg" style="background: rgba(255,255,255,0.04); color: #7c7c99; border: 1px solid rgba(255,255,255,0.07);">{tag}</span>
+                  <span class="text-xs font-mono px-2.5 py-1 rounded-lg" style="background: rgba(255,255,255,0.04); color: #7880b0; border: 1px solid rgba(255,255,255,0.07);">{tag}</span>
                 ))}
               </div>
               {href ? (
-                <a href={href} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors w-fit" style="color: #a78bfa;">
+                <a href={href} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors w-fit" style="color: #818cf8;">
                   Website besuchen
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
                 </a>
@@ -131,14 +131,14 @@ const typo3Projects = [
 
     <!-- TYPO3 projects -->
     <div>
-      <p class="font-mono text-xs tracking-widest uppercase mb-6 reveal" style="color: #7c7c99;">
-        ◉ TYPO3 · Decide Internet Services
+      <p class="font-mono text-xs tracking-widest uppercase mb-6 reveal" style="color: #7880b0;">
+        ◉ TYPO3 · Webagentur
       </p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {typo3Projects.map(({ title, description, tags, href, initials, accentFrom, accentTo }, i) => (
           <article
             class="card-glow rounded-2xl overflow-hidden flex flex-col reveal"
-            style={`background: #13131a; transition-delay: ${i * 0.08}s;`}
+            style={`background: #161929; transition-delay: ${i * 0.08}s;`}
           >
             <div
               class="relative h-24 flex items-center justify-center overflow-hidden"
@@ -155,10 +155,10 @@ const typo3Projects = [
               <p class="text-xs text-muted leading-relaxed mb-3 flex-1">{description}</p>
               <div class="flex flex-wrap gap-1.5 mb-3">
                 {tags.map(tag => (
-                  <span class="text-[10px] font-mono px-2 py-0.5 rounded" style="background: rgba(255,255,255,0.04); color: #7c7c99; border: 1px solid rgba(255,255,255,0.07);">{tag}</span>
+                  <span class="text-[10px] font-mono px-2 py-0.5 rounded" style="background: rgba(255,255,255,0.04); color: #7880b0; border: 1px solid rgba(255,255,255,0.07);">{tag}</span>
                 ))}
               </div>
-              <a href={href} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-semibold transition-colors w-fit" style="color: #a78bfa;">
+              <a href={href} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-semibold transition-colors w-fit" style="color: #818cf8;">
                 Website ↗
               </a>
             </div>
