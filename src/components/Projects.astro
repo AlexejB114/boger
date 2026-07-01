@@ -7,6 +7,7 @@ const ownProjects = [
     href:        'https://krimamakler.de',
     status:      'live',
     initials:    'KM',
+    screenshot:  '/img/projects/krimamakler.png',
     accentFrom:  '#6366f1',
     accentTo:    '#818cf8',
   },
@@ -17,6 +18,7 @@ const ownProjects = [
     href:        null,
     status:      'soon',
     initials:    'AW',
+    screenshot:  null,
     accentFrom:  '#6366f1',
     accentTo:    '#818cf8',
   },
@@ -29,6 +31,7 @@ const typo3Projects = [
     tags:        ['TYPO3', 'Fluid', 'TYPOScript', 'SCSS', 'SEO'],
     href:        'https://tourismus-nuernberg.de',
     initials:    'TN',
+    screenshot:  '/img/projects/tourismus.webp',
     accentFrom:  '#f59e0b',
     accentTo:    '#ef4444',
   },
@@ -38,6 +41,7 @@ const typo3Projects = [
     tags:        ['TYPO3', 'Fluid', 'TYPOScript', 'SCSS'],
     href:        'https://burg-rabenstein.de',
     initials:    'BR',
+    screenshot:  '/img/projects/burgrabenstein.webp',
     accentFrom:  '#10b981',
     accentTo:    '#06b6d4',
   },
@@ -47,6 +51,7 @@ const typo3Projects = [
     tags:        ['TYPO3', 'Fluid', 'TYPOScript', 'SCSS', 'SEO'],
     href:        'https://neustadt-aisch.de',
     initials:    'NA',
+    screenshot:  '/img/projects/neustadtaisch.webp',
     accentFrom:  '#3b82f6',
     accentTo:    '#8b5cf6',
   },
@@ -56,6 +61,7 @@ const typo3Projects = [
     tags:        ['TYPO3', 'Fluid', 'TYPOScript', 'SCSS'],
     href:        'https://eckstein-evangelisch.de',
     initials:    'EK',
+    screenshot:  '/img/projects/eckstein.webp',
     accentFrom:  '#6366f1',
     accentTo:    '#818cf8',
   },
@@ -77,25 +83,34 @@ const typo3Projects = [
         ◈ Eigene Projekte
       </p>
       <div class="grid sm:grid-cols-2 gap-5">
-        {ownProjects.map(({ title, description, tags, href, status, initials, accentFrom, accentTo }, i) => (
+        {ownProjects.map(({ title, description, tags, href, status, initials, screenshot, accentFrom, accentTo }, i) => (
           <article
             class="card-glow rounded-2xl overflow-hidden flex flex-col reveal"
             style={`background: #161929; transition-delay: ${i * 0.1}s;`}
           >
             <div
               class="relative h-36 flex items-center justify-center overflow-hidden"
-              style={`background: linear-gradient(135deg, ${accentFrom}14, ${accentTo}0a);`}
+              style={screenshot ? '' : `background: linear-gradient(135deg, ${accentFrom}14, ${accentTo}0a);`}
             >
-              <div
-                class="absolute inset-0 opacity-20"
-                style="background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 28px 28px;"
-                aria-hidden="true"
-              ></div>
-              <span
-                class="font-extrabold text-6xl select-none opacity-15"
-                style={`font-family: 'Space Grotesk', sans-serif; background: linear-gradient(135deg, ${accentFrom}, ${accentTo}); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;`}
-                aria-hidden="true"
-              >{initials}</span>
+              {screenshot ? (
+                <>
+                  <img src={screenshot} alt={title} class="absolute inset-0 w-full h-full object-cover object-top" loading="lazy" />
+                  <div class="absolute top-0 left-0 right-0" style="height:96px; background: linear-gradient(to bottom, #000000, rgba(104,33,10,0)); z-index:1;"></div>
+                </>
+              ) : (
+                <>
+                  <div
+                    class="absolute inset-0 opacity-20"
+                    style="background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 28px 28px;"
+                    aria-hidden="true"
+                  ></div>
+                  <span
+                    class="font-extrabold text-6xl select-none opacity-15"
+                    style={`font-family: 'Space Grotesk', sans-serif; background: linear-gradient(135deg, ${accentFrom}, ${accentTo}); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;`}
+                    aria-hidden="true"
+                  >{initials}</span>
+                </>
+              )}
               {status === 'live' ? (
                 <div class="absolute top-3 right-3 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono" style="background: rgba(16,185,129,0.12); color: #34d399; border: 1px solid rgba(16,185,129,0.25);">
                   <div class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></div>
@@ -135,20 +150,27 @@ const typo3Projects = [
         ◉ TYPO3 · Webagentur
       </p>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {typo3Projects.map(({ title, description, tags, href, initials, accentFrom, accentTo }, i) => (
+        {typo3Projects.map(({ title, description, tags, href, initials, screenshot, accentFrom, accentTo }, i) => (
           <article
             class="card-glow rounded-2xl overflow-hidden flex flex-col reveal"
             style={`background: #161929; transition-delay: ${i * 0.08}s;`}
           >
             <div
               class="relative h-24 flex items-center justify-center overflow-hidden"
-              style={`background: linear-gradient(135deg, ${accentFrom}12, ${accentTo}08);`}
+              style={screenshot ? '' : `background: linear-gradient(135deg, ${accentFrom}12, ${accentTo}08);`}
             >
-              <span
-                class="font-extrabold text-4xl select-none opacity-15"
-                style={`font-family: 'Space Grotesk', sans-serif; background: linear-gradient(135deg, ${accentFrom}, ${accentTo}); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;`}
-                aria-hidden="true"
-              >{initials}</span>
+              {screenshot ? (
+                <>
+                  <img src={screenshot} alt={title} class="absolute inset-0 w-full h-full object-cover object-top" loading="lazy" />
+                  <div class="absolute top-0 left-0 right-0" style="height:96px; background: linear-gradient(to bottom, #000000, rgba(104,33,10,0)); z-index:1;"></div>
+                </>
+              ) : (
+                <span
+                  class="font-extrabold text-4xl select-none opacity-15"
+                  style={`font-family: 'Space Grotesk', sans-serif; background: linear-gradient(135deg, ${accentFrom}, ${accentTo}); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;`}
+                  aria-hidden="true"
+                >{initials}</span>
+              )}
             </div>
             <div class="p-4 flex flex-col flex-1">
               <h3 class="text-sm font-bold mb-1.5 text-text leading-snug">{title}</h3>
